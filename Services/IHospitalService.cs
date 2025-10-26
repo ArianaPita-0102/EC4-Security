@@ -11,5 +11,7 @@ namespace Security.Services
 
         // Update Method
         Task<Hospital?> UpdateHospital(UpdateHospitalDto dto);
+        //delete method
+        Task<bool> DeleteHospital(Guid id);
     }
 }
