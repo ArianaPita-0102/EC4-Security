@@ -10,5 +10,8 @@ namespace Security.Repositories
 
         //Update Method
         Task Update(Hospital hospital);
+
+        //Delete Method
+        Task Delete(Hospital hospital);
     }
 }
