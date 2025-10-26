@@ -48,5 +48,14 @@ namespace Security.Services
             await _repo.Update(hospital);
             return hospital;
         }
+
+        public async Task<bool> DeleteHospital(Guid id)
+        {
+            var hospital = await _repo.GetOne(id);
+            if (hospital == null) return false;
+
+            await _repo.Delete(hospital);
+            return true;
+        }
     }
 }
