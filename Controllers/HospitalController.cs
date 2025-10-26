@@ -69,5 +69,14 @@ namespace Security.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("types")]
+        public async Task<IActionResult> GetAllByTypes()
+        {
+            var publicTypes = new List<int> { 1, 3 };
+            IEnumerable<Hospital> items = await _service.GetAllByTypes(publicTypes);
+
+            return Ok(items);
+        }
     }
 }
