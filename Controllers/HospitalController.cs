@@ -37,5 +37,25 @@ namespace Security.Controllers
             var hospital = await _service.CreateHospital(dto);
             return CreatedAtAction(nameof(GetOne), new { id = hospital.Id }, hospital);
         }
+
+
+        [HttpPut] 
+        [Authorize] 
+        public async Task<IActionResult> UpdateHospital([FromBody] UpdateHospitalDto dto)
+        {
+            if (!ModelState.IsValid) 
+                return ValidationProblem(ModelState);
+
+            var hospital = await _service.UpdateHospital(dto);
+
+            if (hospital == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(hospital);
+        }
+
+
     }
 }
