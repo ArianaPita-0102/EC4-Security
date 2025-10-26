@@ -27,5 +27,11 @@ namespace Security.Repositories
         {
             return await _db.Hospitals.FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task Update(Hospital hospital)
+        {
+            _db.Hospitals.Update(hospital); // Marca la entidad como modificada
+            await _db.SaveChangesAsync();
+        }
     }
 }
