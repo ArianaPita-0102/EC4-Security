@@ -8,5 +8,8 @@ namespace Security.Services
         Task<IEnumerable<Hospital>> GetAll();
         Task<Hospital> GetOne(Guid id);
         Task<Hospital> CreateHospital(CreateHospitalDto dto);
+
+        // Update Method
+        Task<Hospital?> UpdateHospital(UpdateHospitalDto dto);
     }
 }
