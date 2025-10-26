@@ -7,5 +7,8 @@ namespace Security.Repositories
         Task<IEnumerable<Hospital>> GetAll();
         Task<Hospital> GetOne(Guid id);
         Task Add(Hospital hospital);
+
+        //Update Method
+        Task Update(Hospital hospital);
     }
 }
