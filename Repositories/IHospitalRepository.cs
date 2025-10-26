@@ -13,5 +13,8 @@ namespace Security.Repositories
 
         //Delete Method
         Task Delete(Hospital hospital);
+
+        // Get all hospitals by types
+        Task<IEnumerable<Hospital>> GetAllByTypes(IEnumerable<int> types);
     }
 }
