@@ -30,7 +30,13 @@ namespace Security.Repositories
 
         public async Task Update(Hospital hospital)
         {
-            _db.Hospitals.Update(hospital); // Marca la entidad como modificada
+            _db.Hospitals.Update(hospital); 
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task Delete(Hospital hospital)
+        {
+            _db.Hospitals.Remove(hospital);
             await _db.SaveChangesAsync();
         }
     }
