@@ -13,5 +13,8 @@ namespace Security.Services
         Task<Hospital?> UpdateHospital(UpdateHospitalDto dto);
         //delete method
         Task<bool> DeleteHospital(Guid id);
+
+        // Get all hospitals by types
+        Task<IEnumerable<Hospital>> GetAllByTypes(IEnumerable<int> types);
     }
 }
