@@ -56,6 +56,18 @@ namespace Security.Controllers
             return Ok(hospital);
         }
 
+        [HttpDelete("{id:guid}")] 
+        [Authorize(Policy = "AdminOnly")] 
+        public async Task<IActionResult> DeleteHospital(Guid id)
+        {
+            var deleted = await _service.DeleteHospital(id);
 
+            if (!deleted)
+            {
+                return NotFound(); 
+            }
+
+            return NoContent();
+        }
     }
 }
