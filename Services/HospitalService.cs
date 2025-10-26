@@ -57,5 +57,10 @@ namespace Security.Services
             await _repo.Delete(hospital);
             return true;
         }
+
+        public async Task<IEnumerable<Hospital>> GetAllByTypes(IEnumerable<int> types)
+        {
+            return await _repo.GetAllByTypes(types);
+        }
     }
 }
