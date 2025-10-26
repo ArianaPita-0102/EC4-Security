@@ -39,5 +39,12 @@ namespace Security.Repositories
             _db.Hospitals.Remove(hospital);
             await _db.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Hospital>> GetAllByTypes(IEnumerable<int> types)
+        {
+            return await _db.Hospitals
+                .Where(h => types.Contains(h.Type)) 
+                .ToListAsync();
+        }
     }
 }
